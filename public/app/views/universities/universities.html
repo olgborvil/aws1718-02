@@ -1,0 +1,89 @@
+<div class="container">
+  <h1 class="display-4 text-center mt-5">Universities</h1>
+  <p class="lead text-center">Enter the name of the university you want to know more about.</p>
+  <form name="getUniversityForm">
+    <div class="row row-no-margin">
+      <div class="input-group col no-padding">
+        <input type="text" name="universityName" class="form-control" placeholder="University name" aria-label="University name" ng-model="universityName" ng-class="{'is-invalid': !getUniversityForm.universityName.$valid}" required>
+        <div class="input-group-append">
+          <button ng-disabled="!getUniversityForm.universityName.$valid" class="btn btn-outline-secondary" type="button" ng-click="getUniversity(); universityName = '';">
+          <i class="fa fa-search"></i></button>
+        </div>
+      </div>
+      <!-- &nbsp; &nbsp;
+      <input type="text" class="form-control narrow" placeholder="Enter your apikey here" ng-model="$root.apikeyUniversities"> -->
+    </div>
+  </form>
+  <div class="top-left-buttons">
+    <div class="row justify-content-start">
+      <a class="btn btn-link text-primary" href="#!/researchers">&lt; Go back to researchers</a>
+    </div>
+  </div>
+
+  <ul class="list-group" ng-show="university">
+    <li class="list-group-item list-group-item-info"><b>{{university.name}}</b></li>
+    <li class="list-group-item"><b>Address:</b> {{university.address}}, {{university.ZipCode}}, {{university.city}}</li>
+    <li class="list-group-item"><b>Phone:</b> {{university.phone}}</li>
+    <li class="list-group-item"><b>Fax:</b> {{university.fax}}</li>
+    <li class="list-group-item"><b>Email:</b> {{university.mail}}</li>
+    <li class="list-group-item"><b>Website:</b> {{university.web}}</li>
+    <li class="list-group-item"><b>Research groups:</b></li>
+    <div ng-repeat="researchGroup in university.researchGroups">
+      <li class="list-group-item rg"><a href="" ng-click="getResearchGroupAndShowModal(researchGroup);">{{researchGroup}}</a></li>
+    </div>
+  </ul>
+</div>
+
+<div class="text-center mt-3" ng-show="university">
+  <button class="narrow btn btn-success" type="button"> <i class="fab fa-google-drive"></i> Export to Google Drive</button>
+</div>
+
+<!-- Research group modal -->
+<div class="modal fade" id="researchGroupModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Members of {{selectedResearchGroup.name}}</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div ng-repeat="member in selectedResearchGroup.components">
+            <p>{{member}}</p>
+          </div>
+        </div>
+        <div class="justify-content-center modal-footer">
+          <button type="button" class="btn btn-danger mx-1" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Error modal -->
+<div class="modal fade" id="errorUniversitiesModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Error</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        The server returned the following error: {{errorReturned.status}}, {{errorReturned.statusText}}.
+        <br>
+        {{errorReturned.data}}.
+      </div>
+      <div class="justify-content-center modal-footer">
+        <button type="button" class="btn btn-danger mx-1" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer-up">
+  <div class="container">
+  </div>
+</footer>
+<footer class="footer" >
+<div class="container">
+  <a class="text-muted" href="api/v1/help" target="_blank"><i class="fa fa-file"></i> Postman documentation</span>
+</div>
+</footer>

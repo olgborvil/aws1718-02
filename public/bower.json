@@ -1,0 +1,26 @@
+{
+  "name": "public",
+  "homepage": "https://github.com/AML14/aws-1718-02",
+  "authors": [
+    "Alberto Martín López <alberto.martin95@gmail.com>",
+    "Olga Borrego Villa <olgborvil@alum.us.es>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "angular": "^1.6.9",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.1",
+    "lodash": "^4.17.5"
+  }
+}

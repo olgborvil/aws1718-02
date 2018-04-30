@@ -1,0 +1,32 @@
+{
+  "name": "aws1718-02",
+  "version": "1.0.0",
+  "description": "Microservice to manage researchers resources",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "G02",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "mongodb": "^3.0.7",
+    "nedb": "^1.8.0",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0",
+    "request": "^2.85.0",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-things": "^0.2.0",
+    "grunt": "^1.0.2",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-mocha-test": "^0.13.3",
+    "mocha": "^5.0.5"
+  }
+}
